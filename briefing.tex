@@ -1,0 +1,95 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=0.8in}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{tabularx}
+
+% White, Grey, and Black Colorway
+\definecolor{brandblack}{HTML}{000000}
+\definecolor{brandgrey}{HTML}{333333}
+\definecolor{brandlightgrey}{HTML}{E5E5E5}
+\definecolor{brandmuted}{HTML}{8E9299}
+
+% Custom styling for headers
+\titleformat{\section}{\large\bfseries\color{brandblack}\uppercase}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\bfseries\color{brandgrey}}{}{0em}{}
+
+\title{\textbf{\color{brandblack}SKYVANTAGE - STALWART: CAPABILITY BRIEFING} \\ \large \color{brandmuted}Software-Defined Counter-UAS \& Guidance Logic}
+\author{\textbf{Stalwart Holdings Engineering Team}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\color{brandgrey}
+This document details the Technology Readiness Level 4 (TRL4) validation of the \textbf{Skyvantage - Stalwart System}, a highly attritable, software-defined Counter-UAS platform. Conceived to operate on sub-£2,000 COTS hardware, the system employs Phase Interferometry and advanced Digital Signal Processing to kinetically intercept agile threats at closing speeds exceeding Mach 1. Independent of GNSS and optical sensors, the architecture supports acoustic fallback for RF-silent drones and non-kinetic cyber-takeovers via Quasilinear cryptanalysis. Performance is mathematically proven through a rigorous C++ framework with over 1.7 million assertions.
+\end{abstract}
+
+\section{Introduction}
+
+The proliferation of high-speed, agile, and Radio Frequency (RF)-silent Unmanned Aerial Systems (UAS) presents a critical asymmetric threat. \textbf{Skyvantage - Stalwart} provides a novel Counter-UAS (C-UAS) solution that reduces the cost of interception to the absolute floor.
+
+Our solution introduces a highly agile, low-SWaP-C interceptor architecture. To ensure high attritability and keep unit costs at £1,850, the payload utilizes lightweight COTS SDR hardware coupled with an Allied-sourced edge compute module.
+
+\section{The Stalwart Product Line}
+
+\subsection{Stalwart Interceptor}
+The full packaged £1,850 interceptor. A disposable ``tactical round'' designed for mass-scale defense against drone swarms. It is a COTS delivery vehicle for our proprietary guidance logic.
+
+\subsection{Stalwart Sensor}
+The ``Brain'' of the system. Allied-sourced compute engine + antennas + software that tracks Mach 1 closing speeds. This unit can be integrated into various airframes, from pusher-props to solid-fuel rockets.
+
+\subsection{Stalwart Solver}
+Proprietary quasilinear solver for heavy NP-Complete applications. Capable of cryptographic seed recovery in fractions of a second, enabling surgical non-kinetic defeat.
+
+\section{Market Segmentation \& Unit Economics}
+
+Stalwart Defence is not disrupting the missile market; we are disrupting the MARSS market. In the world of defense procurement, legacy competitors are actually our Price Floor Validation.
+
+\subsection{The Asymmetric Cost-Curve}
+In Ukraine and the Middle East, the problem isn't ``can we hit the drone?''---it’s ``can we afford to hit 1,000 drones?'' At £40,000 per unit, a swarm of 100 Shahed-style drones costs £4 Million to intercept. At £1,850 per unit, that same swarm costs £185,000. We've turned a Strategic Decision into a Tactical Round of Ammunition.
+
+\subsection{The Mach 1 Sensor ``Bloodhound''}
+Our interceptors are disposable COTS delivery vehicles. The value is in the software that can track a Mach 1 closing speed on a sub-£500 processor. We are building the Guidance Logic that can eventually be bolted onto a solid-fuel rocket or a high-spec jet frame.
+
+\subsection{Project GOSHAWK Alignment}
+The UK MoD's Project GOSHAWK explicitly calls for ``low-cost interceptors optimized for both drones and missiles.'' We fit the GOSHAWK mandate perfectly by reducing the cost of interception to the absolute floor.
+
+\section{Technical Capabilities}
+
+\begin{table}[ht]
+\centering
+\color{brandgrey}
+\begin{tabularx}{\textwidth}{|l|c|X|}
+\hline
+\rowcolor{brandlightgrey} \textbf{Component} & \textbf{Est. Cost (GBP)} & \textbf{Engineering Note} \\ \hline
+Compute (Allied Module) & £80 & Sufficient CPU for edge DSP and FFT execution. \\ \hline
+Dual-Channel Coherent SDR & £400 & Allied-sourced wideband receiver. \\ \hline
+TCXO Upgrade Module & £40 & Allied-sourced 0.5 ppm oscillator to mitigate drift. \\ \hline
+Antennas \& RF Cabling & £50 & High-quality shielded cables to prevent self-interference. \\ \hline
+Flight Controller & £150 & NDAA-compliant flight management system. \\ \hline
+Airframe \& Propulsion & £350 & Carbon frame, allied-compliant motors and ESCs. \\ \hline
+Assembly \& Calibration & £280 & UK-based baseline validation and software flashing. \\ \hline
+\textbf{Total COGS} & \textbf{£1,350} & \textbf{Fully burdened manufacturing cost per unit.} \\ \hline
+\end{tabularx}
+\caption{Stalwart Interceptor Bill of Materials (BOM) and Pricing}
+\label{tab:bom}
+\end{table}
+
+\section{Conclusion}
+
+\textbf{Skyvantage - Stalwart} does not build ``Electric Missiles.'' We build Acoustic and Radio-Logic Guidance Units. We have solved the Mach 1 Tracking Problem in software. We are not seeking funds to ``discover'' technology; we are seeking match-funding to transition our verified guidance logic from a TRL4 simulation into a physical, COTS-based kinetic demonstrator.
+
+\end{document}
