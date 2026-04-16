@@ -1,22 +1,28 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Languages } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   const products = [
-    { name: "Skyvantage Sensor", href: "/sensor" },
-    { name: "GF2 Solver", href: "/solver" },
-    { name: "Guidance Logic", href: "/guidance" },
+    { name: t('nav.sensor'), href: "/sensor" },
+    { name: t('nav.solver'), href: "/solver" },
+    { name: t('nav.guidance'), href: "/guidance" },
   ];
 
   const navLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "Contact Us", href: "/contact" },
+    { name: t('nav.about'), href: "/about" },
+    { name: t('nav.contact'), href: "/contact" },
   ];
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'pt' : 'en');
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-md border-b border-white/10">
@@ -93,10 +99,28 @@ export default function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
+
+                {/* Language Switcher */}
+                <motion.button
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  onClick={toggleLanguage}
+                  className="flex items-center gap-2 text-white/50 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors border border-white/10 bg-white/5"
+                >
+                  <Languages className="w-4 h-4" />
+                  {language === 'en' ? 'PT' : 'EN'}
+                </motion.button>
               </div>
             </div>
           </div>
-          <div className="-mr-2 flex md:hidden">
+          <div className="-mr-2 flex md:hidden items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="p-2 rounded-md text-white/50 hover:text-white"
+            >
+              <Languages className="h-5 w-5" />
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-brand-accent focus:outline-none"

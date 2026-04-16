@@ -1,7 +1,10 @@
 import { motion } from "motion/react";
 import { Wind, Globe, RefreshCw, Layers } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Guidance() {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-32 pb-24 bg-black min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,11 +16,10 @@ export default function Guidance() {
           <div>
             <span className="text-brand-muted font-bold tracking-widest uppercase text-sm mb-4 block">Software</span>
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter">
-              SKYVANTAGE <span className="text-brand-muted">LOGIC</span>
+              {t('guidance.title')}
             </h1>
             <p className="text-white/60 text-xl leading-relaxed mb-10">
-              Software-defined terminal guidance that transforms any allied drone into a precision kinetic weapon. 
-              Independent of GNSS and optical sensors.
+              {t('guidance.subtitle')}
             </p>
             <div className="p-6 rounded-3xl bg-white/5 border border-white/10 inline-block">
               <p className="text-brand-muted text-xs uppercase tracking-widest mb-2">Delivery Model</p>

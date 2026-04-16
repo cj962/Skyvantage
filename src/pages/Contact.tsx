@@ -1,18 +1,20 @@
 import { motion } from "motion/react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Contact() {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-32 pb-24 bg-black min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter">
-              CONTACT <span className="text-brand-muted">US</span>
+              {t('contact.title')}
             </h1>
             <p className="text-white/60 text-xl leading-relaxed mb-12">
-              Have questions about our software-defined defence solutions? 
-              Our team is ready to provide technical briefings and TRL4 validation reports.
+              {t('contact.subtitle')}
             </p>
             
             <div className="space-y-8">
@@ -21,7 +23,7 @@ export default function Contact() {
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-brand-muted text-xs uppercase tracking-widest">Email</p>
+                  <p className="text-brand-muted text-xs uppercase tracking-widest">{t('contact.email')}</p>
                   <p className="text-white font-bold">crm@stalwart.vg</p>
                 </div>
               </div>
@@ -30,7 +32,7 @@ export default function Contact() {
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-brand-muted text-xs uppercase tracking-widest">Phone</p>
+                  <p className="text-brand-muted text-xs uppercase tracking-widest">{t('contact.phone')}</p>
                   <p className="text-white font-bold">02035760737</p>
                 </div>
               </div>
@@ -50,7 +52,7 @@ export default function Contact() {
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-brand-muted font-bold">Name</label>
+                  <label className="text-xs uppercase tracking-widest text-brand-muted font-bold">{t('contact.name')}</label>
                   <input 
                     type="text" 
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 transition-colors"
@@ -58,7 +60,7 @@ export default function Contact() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-brand-muted font-bold">Email</label>
+                  <label className="text-xs uppercase tracking-widest text-brand-muted font-bold">{t('contact.email')}</label>
                   <input 
                     type="email" 
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 transition-colors"
@@ -67,7 +69,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-brand-muted font-bold">Phone</label>
+                <label className="text-xs uppercase tracking-widest text-brand-muted font-bold">{t('contact.phone')}</label>
                 <input 
                   type="tel" 
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 transition-colors"
@@ -75,7 +77,7 @@ export default function Contact() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-brand-muted font-bold">Brief Message</label>
+                <label className="text-xs uppercase tracking-widest text-brand-muted font-bold">{t('contact.message')}</label>
                 <textarea 
                   rows={4}
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 transition-colors resize-none"
@@ -83,7 +85,7 @@ export default function Contact() {
                 />
               </div>
               <button className="w-full bg-white text-black font-bold py-4 rounded-xl hover:scale-[1.02] transition-transform">
-                Send Message
+                {t('contact.send')}
               </button>
             </form>
           </div>

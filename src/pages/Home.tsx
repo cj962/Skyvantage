@@ -2,8 +2,11 @@ import Hero from "../components/Hero";
 import Features from "../components/Features";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <main>
       <Hero />
@@ -59,7 +62,7 @@ export default function Home() {
           </p>
           <Link to="/contact">
             <button className="bg-black text-white px-12 py-5 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-2xl">
-              Contact Our Team
+              {t('hero.contact')}
             </button>
           </Link>
         </div>

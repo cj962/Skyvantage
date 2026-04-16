@@ -1,29 +1,32 @@
 import { motion } from "motion/react";
 import { Shield, Wind, Cpu, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const features = [
-  {
-    icon: Cpu,
-    title: "Skyvantage Sensor",
-    description: "Universal Software Defined Terminal Guidance Sensor Suite. A completely self-contained edge compute module for high-speed Counter-UAS.",
-    link: "/sensor"
-  },
-  {
-    icon: Shield,
-    title: "GF2 Solver",
-    description: "Proprietary quasilinear solver for heavy NP-Complete applications. Optimised for industrial key recovery and hardware verification.",
-    link: "/solver"
-  },
-  {
-    icon: Wind,
-    title: "Guidance Logic",
-    description: "Software-defined guidance logic capable of tracking high-subsonic loitering munitions on sub-£500 processors.",
-    link: "/guidance"
-  }
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Features() {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: Cpu,
+      title: t('nav.sensor'),
+      description: "Universal Software Defined Terminal Guidance Sensor Suite. A completely self-contained edge compute module for high-speed Counter-UAS.",
+      link: "/sensor"
+    },
+    {
+      icon: Shield,
+      title: t('nav.solver'),
+      description: "Proprietary quasilinear solver for heavy NP-Complete applications. Optimised for industrial key recovery and hardware verification.",
+      link: "/solver"
+    },
+    {
+      icon: Wind,
+      title: t('nav.guidance'),
+      description: "Software-defined guidance logic capable of tracking high-subsonic loitering munitions on sub-£500 processors.",
+      link: "/guidance"
+    }
+  ];
+
   return (
     <section id="features" className="py-24 bg-black relative overflow-hidden">
       {/* Background Glow */}
@@ -37,7 +40,7 @@ export default function Features() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-display font-bold mb-6"
           >
-            THE <span className="text-brand-muted">SKYVANTAGE</span> PRODUCT LINE
+            {t('features.title')}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -46,8 +49,7 @@ export default function Features() {
             transition={{ delay: 0.1 }}
             className="text-white/40 max-w-2xl mx-auto"
           >
-            We aren't building a better drone. We are building a cheaper brain. 
-            Defence at scale through asymmetric unit economics.
+            {t('features.subtitle')}
           </motion.p>
         </div>
 

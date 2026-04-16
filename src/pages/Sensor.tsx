@@ -1,7 +1,10 @@
 import { motion } from "motion/react";
 import { Cpu, Zap, Shield, Target } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Sensor() {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-32 pb-24 bg-black min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,19 +16,18 @@ export default function Sensor() {
           <div>
             <span className="text-brand-muted font-bold tracking-widest uppercase text-sm mb-4 block">Product</span>
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter">
-              SKYVANTAGE <span className="text-brand-muted">SENSOR</span>
+              {t('sensor.title')}
             </h1>
             <p className="text-white/60 text-xl leading-relaxed mb-10">
-              Universal Software Defined Terminal Guidance Sensor Suite for High Speed Counter UAS. 
-              A completely self-contained edge compute module for seamless integration.
+              {t('sensor.subtitle')}
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                <p className="text-brand-muted text-xs uppercase tracking-widest mb-1">Unit Cost</p>
+                <p className="text-brand-muted text-xs uppercase tracking-widest mb-1">{t('sensor.cost')}</p>
                 <p className="text-2xl font-bold">£1,850</p>
               </div>
               <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                <p className="text-brand-muted text-xs uppercase tracking-widest mb-1">Tracking Speed</p>
+                <p className="text-brand-muted text-xs uppercase tracking-widest mb-1">{t('sensor.speed')}</p>
                 <p className="text-2xl font-bold">Mach 1.2</p>
               </div>
             </div>
@@ -33,8 +35,8 @@ export default function Sensor() {
           <div className="relative">
             <div className="absolute inset-0 bg-white/5 rounded-full blur-[100px] opacity-20"></div>
             <img 
-              src="https://grid1.stalwart.vg/images/drone1.png" 
-              alt="Stalwart Sensor Module" 
+              src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2070&auto=format&fit=crop" 
+              alt="Skyvantage Sensor Module" 
               className="relative z-10 w-full h-auto rounded-3xl grayscale border border-white/10"
               referrerPolicy="no-referrer"
             />

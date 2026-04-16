@@ -1,18 +1,19 @@
 import { motion } from "motion/react";
 import { User, GraduationCap, Building2 } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-32 pb-24 bg-black min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-24">
           <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter">
-            ABOUT <span className="text-brand-muted">SKYVANTAGE</span>
+            {t('about.title')}
           </h1>
           <p className="text-white/60 text-xl leading-relaxed max-w-3xl">
-            Skyvantage is at the forefront of software-defined defence. 
-            We specialise in creating asymmetric advantages through algorithmic innovation, 
-            transforming standard hardware into precision-guided systems.
+            {t('about.subtitle')}
           </p>
         </div>
 
@@ -21,22 +22,20 @@ export default function About() {
             <section>
               <div className="flex items-center gap-4 mb-6">
                 <GraduationCap className="w-8 h-8 text-white" />
-                <h2 className="text-3xl font-bold">Academic Foundation</h2>
+                <h2 className="text-3xl font-bold">{t('about.academic')}</h2>
               </div>
               <p className="text-white/50 leading-relaxed text-lg">
-                Our technology is rooted in rigorous academic research and mathematical validation. 
-                We collaborate with leading institutions to ensure our algorithms are at the cutting edge of RF physics and cryptanalysis.
+                {t('about.academic_desc')}
               </p>
             </section>
             
             <section>
               <div className="flex items-center gap-4 mb-6">
                 <Building2 className="w-8 h-8 text-white" />
-                <h2 className="text-3xl font-bold">Strategic Vision</h2>
+                <h2 className="text-3xl font-bold">{t('about.vision')}</h2>
               </div>
               <p className="text-white/50 leading-relaxed text-lg">
-                We believe in "Defence at Scale." By reducing the cost of interception to the absolute floor, 
-                we enable symmetric responses to massed asymmetric threats.
+                {t('about.vision_desc')}
               </p>
             </section>
           </div>
@@ -84,10 +83,9 @@ export default function About() {
         </div>
 
         <div className="p-12 rounded-3xl bg-white/5 border border-white/10 text-center">
-          <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
+          <h2 className="text-3xl font-bold mb-6">{t('about.mission')}</h2>
           <p className="text-white/60 text-lg max-w-2xl mx-auto leading-relaxed">
-            To provide allied forces with the most cost-effective, adaptable, and lethal software-defined defence systems in the world. 
-            We are redefining the unit economics of modern warfare through the Skyvantage platform.
+            {t('about.mission_desc')}
           </p>
         </div>
       </div>

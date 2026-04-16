@@ -1,7 +1,10 @@
 import { motion } from "motion/react";
 import { Shield, Lock, Cpu, Activity, Binary, CheckCircle2, Search, Brain } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Solver() {
+  const { t } = useLanguage();
+
   const industrialApps = [
     {
       title: "Civilian UAS key recovery",
@@ -40,11 +43,10 @@ export default function Solver() {
           <div>
             <span className="text-brand-muted font-bold tracking-widest uppercase text-sm mb-4 block">Product</span>
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter">
-              GF2 <span className="text-brand-muted">SOLVER</span>
+              {t('solver.title')}
             </h1>
             <p className="text-white/60 text-xl leading-relaxed mb-10">
-              Proprietary quasilinear solver for heavy NP-Complete applications. 
-              Optimised for structurally dense unique promise satisfiability problems.
+              {t('solver.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4">
               <div className="px-6 py-3 rounded-full bg-white text-black font-bold flex items-center gap-2">

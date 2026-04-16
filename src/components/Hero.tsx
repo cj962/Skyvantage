@@ -1,8 +1,11 @@
 import { motion } from "motion/react";
 import { ArrowRight, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image with Overlay */}
@@ -24,14 +27,13 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <span className="inline-block px-4 py-1.5 mb-6 rounded-full border border-white/20 bg-white/5 text-white/80 text-xs font-bold tracking-widest uppercase">
-            Software-Defined Defence
+            {t('hero.badge')}
           </span>
           <h1 className="text-5xl md:text-8xl font-display font-bold leading-none mb-8 tracking-tighter">
-            Skyvantage
+            {t('hero.title')}
           </h1>
           <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Asymmetric Counter-UAS and Guidance Logic. 
-            Redefining aerial defence through high-fidelity software brains.
+            {t('hero.subtitle')}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -41,7 +43,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="w-full bg-white text-black px-10 py-4 rounded-full font-bold flex items-center justify-center gap-2 group"
               >
-                Explore Products
+                {t('hero.explore')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
             </a>
@@ -52,7 +54,7 @@ export default function Hero() {
                 className="w-full glass-panel px-10 py-4 rounded-full font-bold flex items-center justify-center gap-2 group"
               >
                 <Shield className="w-5 h-5" />
-                Contact Us
+                {t('hero.contact')}
               </motion.button>
             </Link>
           </div>
