@@ -16,6 +16,30 @@ export default function Home() {
       
       <Features />
       
+      {/* Video Showcase Section */}
+      <section className="py-12 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl relative group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none z-10"></div>
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              className="w-full h-auto relative z-0"
+            >
+              <source src="https://grid1.stalwart.vg/Dronevid.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
+        </div>
+      </section>
+      
       {/* Analysis Section */}
       <section id="gallery" className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
