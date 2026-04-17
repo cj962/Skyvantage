@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 type Language = 'en' | 'pt';
 
@@ -100,7 +100,15 @@ const translations: Record<Language, Record<string, string>> = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguageState] = useState<Language>(() => {
+    const saved = localStorage.getItem('skyvantage_lang');
+    return (saved === 'pt' || saved === 'en') ? saved : 'en';
+  });
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    localStorage.setItem('skyvantage_lang', lang);
+  };
 
   const t = (key: string) => {
     return translations[language][key] || key;

@@ -117,11 +117,14 @@ export default function Sensor() {
             <p className="text-white/40">High-fidelity sensor telemetry captured during Mach 1.2 simulated engagement.</p>
           </div>
           <img 
-            src="https://grid1.stalwart.vg/sensorsample.png" 
+            src="https://grid1.stalwart.vg/newdrone.png" 
             alt="Sensor Sample Data" 
-            className="w-full h-auto rounded-2xl grayscale opacity-80"
+            className="w-full h-auto rounded-2xl grayscale opacity-80 mb-4"
             referrerPolicy="no-referrer"
           />
+          <p className="text-white/40 text-xs text-center font-bold italic tracking-wide">
+            INDICATIVE ILLUSTRATION - THE ACTUAL PRODUCT MAY LOOK DIFFERENT
+          </p>
         </motion.div>
       </div>
     </div>
