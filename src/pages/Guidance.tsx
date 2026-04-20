@@ -22,8 +22,8 @@ export default function Guidance() {
               {t('guidance.subtitle')}
             </p>
             <div className="p-6 rounded-3xl bg-white/5 border border-white/10 inline-block">
-              <p className="text-brand-muted text-xs uppercase tracking-widest mb-2">Delivery Model</p>
-              <p className="text-xl font-bold">Software as a Service (SaaS)</p>
+              <p className="text-brand-muted text-xs uppercase tracking-widest mb-2">{t('guidance.delivery')}</p>
+              <p className="text-xl font-bold">{t('guidance.saas')}</p>
             </div>
           </div>
           <div className="relative">
@@ -32,15 +32,15 @@ export default function Guidance() {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center font-mono font-bold text-brand-muted">85</div>
-                  <p className="text-sm text-white/60">Operating scenarios validated in high-fidelity simulation.</p>
+                  <p className="text-sm text-white/60">{t('guidance.scenarios')}</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center font-mono font-bold text-brand-muted">1.7M</div>
-                  <p className="text-sm text-white/60">Mathematical assertions verified during TRL4 testing.</p>
+                  <p className="text-sm text-white/60">{t('guidance.assertions')}</p>
                 </div>
                 <div className="pt-6 border-t border-white/5">
                   <div className="flex justify-between items-end mb-2">
-                    <span className="text-[10px] uppercase tracking-widest text-white/40 font-bold">Latency</span>
+                    <span className="text-[10px] uppercase tracking-widest text-white/40 font-bold">{t('guidance.latency')}</span>
                     <span className="text-xs font-mono text-brand-muted">&lt; 2ms</span>
                   </div>
                   <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
@@ -54,41 +54,41 @@ export default function Guidance() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
           <div className="space-y-8">
-            <h2 className="text-3xl font-bold">Fleet-Wide Retrofitting</h2>
+            <h2 className="text-3xl font-bold">{t('guidance.fleet')}</h2>
             <p className="text-white/50 leading-relaxed text-lg">
-              The engineering approach explicitly removes the need to procure expensive new interceptor fleets and enables military operators to retrofit their existing inventory of low cost allied drones.
+              {t('guidance.fleet_desc')}
             </p>
             <ul className="space-y-4">
               <li className="flex items-center gap-4 text-white/70">
                 <div className="w-2 h-2 bg-white rounded-full" />
-                <span>Low-latency C++ implementation for edge compute</span>
+                <span>{t('guidance.feat1')}</span>
               </li>
               <li className="flex items-center gap-4 text-white/70">
                 <div className="w-2 h-2 bg-white rounded-full" />
-                <span>Compatible with MAVLink protocol standards</span>
+                <span>{t('guidance.feat2')}</span>
               </li>
               <li className="flex items-center gap-4 text-white/70">
                 <div className="w-2 h-2 bg-white rounded-full" />
-                <span>Dynamic physical baseline configurability</span>
+                <span>{t('guidance.feat3')}</span>
               </li>
               <li className="flex items-center gap-4 text-white/70">
                 <div className="w-2 h-2 bg-white rounded-full" />
-                <span>GNSS-independent terminal guidance</span>
+                <span>{t('guidance.feat4')}</span>
               </li>
             </ul>
           </div>
           <div className="p-10 rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-center">
             <RefreshCw className="w-12 h-12 text-white mb-8" />
-            <h3 className="text-2xl font-bold mb-6">Continuous Threat Resolution</h3>
+            <h3 className="text-2xl font-bold mb-6">{t('guidance.continuous')}</h3>
             <p className="text-white/50 leading-relaxed">
-              The system relies on a SaaS delivery model to ensure the terminal guidance capabilities remain continuously effective against rapidly evolving adversarial threats. Over-the-air firmware updates guarantee adaptation to new frequency hopping protocols.
+              {t('guidance.continuous_desc')}
             </p>
           </div>
         </div>
 
         <div className="bg-white text-black p-12 rounded-3xl text-center">
-          <h2 className="text-3xl font-bold mb-6 italic">"We aren't building a better drone. We are building a cheaper brain."</h2>
-          <p className="text-black/60 font-medium">Skyvantage Guidance Logic - Defence at Scale</p>
+          <h2 className="text-3xl font-bold mb-6 italic">{t('guidance.quote')}</h2>
+          <p className="text-black/60 font-medium">{t('guidance.title')} - Defence at Scale</p>
         </div>
       </div>
     </div>

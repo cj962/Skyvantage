@@ -41,7 +41,7 @@ export default function About() {
           </div>
 
           <div className="glass-panel p-10 rounded-3xl border border-white/10">
-            <h3 className="text-2xl font-bold mb-8">Leadership</h3>
+            <h3 className="text-2xl font-bold mb-8">{t('about.leadership')}</h3>
             <div className="space-y-10">
               <div className="flex flex-col md:flex-row items-start gap-6">
                 <div className="w-32 h-32 rounded-2xl bg-white/10 overflow-hidden flex-shrink-0 border border-white/10">
@@ -54,9 +54,9 @@ export default function About() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-white">Fabio Dias</h4>
-                  <p className="text-brand-muted text-sm uppercase tracking-widest mb-2">Principal Investigator / CEO</p>
+                  <p className="text-brand-muted text-sm uppercase tracking-widest mb-2">{t('about.fabio_title')}</p>
                   <p className="text-white/40 text-sm leading-relaxed">
-                    Dr Dias will lead the digital signal processing and algorithmic development for the sensor suite, leveraging his extensive background in mathematical modelling to direct the edge computing and software implementations. As the Programme Director of the FinTech and Policy MSc at the University of Surrey and the CEO of Skyvantage, he holds a STEM PhD from University College London. He brings over two decades of experience bridging applied computer science, software innovation, and complex algorithmic design from senior roles at major financial institutions.
+                    {t('about.fabio_bio')}
                   </p>
                 </div>
               </div>
@@ -72,9 +72,9 @@ export default function About() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-white">Alexander Shomalistos</h4>
-                  <p className="text-brand-muted text-sm uppercase tracking-widest mb-2">C++ Software Engineer</p>
+                  <p className="text-brand-muted text-sm uppercase tracking-widest mb-2">{t('about.alex_title')}</p>
                   <p className="text-white/40 text-sm leading-relaxed">
-                    Alexander will serve as the lead C++ software engineer, responsible for porting the complex digital signal processing algorithms and phase interferometry mathematics into highly optimised, low-latency firmware for the edge compute module. Based in London, he is a software developer with a background in building robust, high-performance systems. His programming expertise will be crucial for translating theoretical mathematical models into executable C++ code that operates efficiently within the strict processing and memory constraints of the Raspberry Pi hardware.
+                    {t('about.alex_bio')}
                   </p>
                 </div>
               </div>

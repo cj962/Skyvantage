@@ -65,19 +65,19 @@ export default function Hero() {
       <div className="absolute bottom-10 left-0 right-0 hidden lg:block">
         <div className="max-w-7xl mx-auto px-8 flex justify-between items-end opacity-40">
           <div className="space-y-1">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted">Intercept Speed</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted">{t('hero.intercept_speed')}</p>
             <p className="text-2xl font-display font-bold">MACH 1+</p>
           </div>
           <div className="space-y-1">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted">Target Class</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted">{t('hero.target_class')}</p>
             <p className="text-2xl font-display font-bold">GROUP 1-3</p>
           </div>
           <div className="space-y-1">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted">Unit Cost</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted">{t('hero.unit_cost')}</p>
             <p className="text-2xl font-display font-bold">&lt; £2,000</p>
           </div>
           <div className="space-y-1">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted">Seeker</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted">{t('hero.seeker')}</p>
             <p className="text-2xl font-display font-bold">RF/ACOUSTIC</p>
           </div>
         </div>

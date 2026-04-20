@@ -7,26 +7,26 @@ export default function Solver() {
 
   const industrialApps = [
     {
-      title: "Civilian UAS key recovery",
-      description: "Rapidly recovering lost encryption keys for civilian drone fleets to ensure operational continuity without hardware replacement.",
+      title: t('solver.app1_title'),
+      description: t('solver.app1_desc'),
       image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2070&auto=format&fit=crop",
       icon: Lock
     },
     {
-      title: "Trusted hardware verification",
-      description: "Formal verification of logic circuits to detect hardware Trojans and ensure the integrity of secure processor designs.",
+      title: t('solver.app2_title'),
+      description: t('solver.app2_desc'),
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2048&auto=format&fit=crop",
       icon: Cpu
     },
     {
-      title: "Automated cryptoanalysis",
-      description: "Accelerating the analysis of cryptographic primitives through evolutionary rank augmentation in the GF(2) field.",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=2026&auto=format&fit=crop",
+      title: t('solver.app3_title'),
+      description: t('solver.app3_desc'),
+      image: "https://grid1.stalwart.vg/cryptophoto.jpg",
       icon: Search
     },
     {
-      title: "AI model verification",
-      description: "Ensuring the robustness and safety of neural networks by verifying complex boolean constraints within the model architecture.",
+      title: t('solver.app4_title'),
+      description: t('solver.app4_desc'),
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop",
       icon: Brain
     }
@@ -51,11 +51,11 @@ export default function Solver() {
             <div className="flex flex-wrap gap-4">
               <div className="px-6 py-3 rounded-full bg-white text-black font-bold flex items-center gap-2">
                 <Binary className="w-4 h-4" />
-                Polynomial Time
+                {t('solver.poly_time')}
               </div>
               <div className="px-6 py-3 rounded-full border border-white/20 text-white font-bold flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-brand-muted" />
-                Unique Solution Recovery
+                {t('solver.unique_recovery')}
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function Solver() {
               <Activity className="w-32 h-32 text-white opacity-20 absolute animate-pulse" />
               <div className="text-center relative z-20">
                 <p className="text-6xl font-mono font-bold mb-2 tracking-tighter">GF(2)</p>
-                <p className="text-brand-muted text-xs uppercase tracking-widest font-bold">Field Optimisation</p>
+                <p className="text-brand-muted text-xs uppercase tracking-widest font-bold">{t('solver.field_opt')}</p>
               </div>
               <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2">
                 <div className="h-1 w-12 bg-brand-muted rounded-full" />
@@ -83,7 +83,7 @@ export default function Solver() {
         </motion.div>
 
         <div className="mb-24">
-          <h2 className="text-3xl font-bold mb-12 text-center">Industrial Applications</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">{t('solver.apps')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {industrialApps.map((app, idx) => (
               <motion.div 
@@ -98,7 +98,7 @@ export default function Solver() {
                   <img 
                     src={app.image} 
                     alt={app.title}
-                    className="w-full h-full object-cover grayscale opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
+                    className="w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 group-hover:opacity-80 transition-all duration-700"
                     referrerPolicy="no-referrer"
                   />
                 </div>
@@ -119,33 +119,33 @@ export default function Solver() {
         </div>
 
         <div className="prose prose-invert max-w-none mb-24">
-          <h2 className="text-3xl font-bold mb-8">Dual Use Capability</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('solver.dual_use')}</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div className="p-8 rounded-3xl bg-white/5 border border-white/10">
-                <h3 className="text-xl font-bold mb-4">Trusted Hardware Verification</h3>
+                <h3 className="text-xl font-bold mb-4">{t('solver.dual1_title')}</h3>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  Providing formal proof of circuit integrity for high-assurance semiconductor manufacturing and secure enclave validation.
+                  {t('solver.dual1_desc')}
                 </p>
               </div>
               <div className="p-8 rounded-3xl bg-white/5 border border-white/10">
-                <h3 className="text-xl font-bold mb-4">Trusted AI Integrity</h3>
+                <h3 className="text-xl font-bold mb-4">{t('solver.dual2_title')}</h3>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  Verifying the safety constraints of autonomous systems and neural networks to prevent adversarial exploitation in civilian infrastructure.
+                  {t('solver.dual2_desc')}
                 </p>
               </div>
             </div>
             <div className="space-y-8">
               <div className="p-8 rounded-3xl bg-white/5 border border-white/10">
-                <h3 className="text-xl font-bold mb-4">Civilian Fleet Management</h3>
+                <h3 className="text-xl font-bold mb-4">{t('solver.dual3_title')}</h3>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  Enabling secure recovery and management of large-scale commercial UAS fleets through advanced cryptographic key restoration.
+                  {t('solver.dual3_desc')}
                 </p>
               </div>
               <div className="p-8 rounded-3xl bg-white/5 border border-white/10">
-                <h3 className="text-xl font-bold mb-4">Automated Security Auditing</h3>
+                <h3 className="text-xl font-bold mb-4">{t('solver.dual4_title')}</h3>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  Streamlining the audit of complex software systems by resolving underlying satisfiability problems in record time.
+                  {t('solver.dual4_desc')}
                 </p>
               </div>
             </div>
@@ -153,28 +153,28 @@ export default function Solver() {
         </div>
 
         <div className="prose prose-invert max-w-none mb-24">
-          <h2 className="text-3xl font-bold mb-8">Mathematical Validation</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('solver.math')}</h2>
           <div className="bg-white/5 p-12 rounded-3xl border border-white/10 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-5">
               <Binary className="w-64 h-64" />
             </div>
             <p className="text-xl text-white/70 leading-relaxed mb-8 relative z-10">
-              Our proprietary Evolutionary Rank Augmentation algorithm provides a polynomial-time solution for structurally dense unique promise satisfiability problems.
+              {t('solver.math_summary')}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center relative z-10">
               <div className="p-6 rounded-2xl bg-black/40 border border-white/5">
                 <p className="text-3xl font-bold mb-2">GF(2)</p>
-                <p className="text-white/40 text-xs uppercase tracking-widest">Finite Field Algebra</p>
+                <p className="text-white/40 text-xs uppercase tracking-widest">{t('solver.finite_field')}</p>
               </div>
               <div className="p-6 rounded-2xl bg-black/40 border border-white/5">
-                <p className="text-lg font-bold mb-2 leading-tight">Solves average NP-Complete problems in polynomial time when there is a unique solution</p>
-                <p className="text-white/40 text-xs uppercase tracking-widest mt-2">Complexity Resolution</p>
+                <p className="text-lg font-bold mb-2 leading-tight">{t('solver.complexity_res_desc')}</p>
+                <p className="text-white/40 text-xs uppercase tracking-widest mt-2">{t('solver.complexity_res')}</p>
               </div>
             </div>
             <div className="mt-12 pt-12 border-t border-white/5 relative z-10">
-              <h4 className="text-white font-bold mb-4">Validation Summary</h4>
+              <h4 className="text-white font-bold mb-4">{t('solver.val_summary')}</h4>
               <p className="text-white/50 text-sm leading-relaxed">
-                The solver has been rigorously validated through formal complexity analysis, demonstrating expected polynomial time behaviour on random Circuit-USAT instances. This framework transforms Boolean constraints into sparse systems of equations, treating the search as a stochastic rank augmentation process.
+                {t('solver.val_desc')}
               </p>
             </div>
           </div>

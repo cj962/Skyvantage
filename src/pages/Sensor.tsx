@@ -46,59 +46,59 @@ export default function Sensor() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
           <div className="p-8 rounded-3xl bg-white/5 border border-white/10">
             <Cpu className="w-10 h-10 text-white mb-6" />
-            <h3 className="text-xl font-bold mb-4">Edge Compute</h3>
+            <h3 className="text-xl font-bold mb-4">{t('sensor.edge_compute')}</h3>
             <p className="text-white/40 text-sm leading-relaxed">
-              Powered by a UK-manufactured Raspberry Pi 5 module and dual-channel phase coherent SDR.
+              {t('sensor.edge_compute_desc')}
             </p>
           </div>
           <div className="p-8 rounded-3xl bg-white/5 border border-white/10">
             <Zap className="w-10 h-10 text-white mb-6" />
-            <h3 className="text-xl font-bold mb-4">Direct Mount</h3>
+            <h3 className="text-xl font-bold mb-4">{t('sensor.direct_mount')}</h3>
             <p className="text-white/40 text-sm leading-relaxed">
-              Antennas attached directly to the radio chassis to eliminate phase delay and signal loss.
+              {t('sensor.direct_mount_desc')}
             </p>
           </div>
           <div className="p-8 rounded-3xl bg-white/5 border border-white/10">
             <Target className="w-10 h-10 text-white mb-6" />
-            <h3 className="text-xl font-bold mb-4">MAVLink Integration</h3>
+            <h3 className="text-xl font-bold mb-4">{t('sensor.mavlink')}</h3>
             <p className="text-white/40 text-sm leading-relaxed">
-              Universal serial bus connection for power and high-speed data conduit for autopilot commands.
+              {t('sensor.mavlink_desc')}
             </p>
           </div>
         </div>
 
         <div className="prose prose-invert max-w-none mb-24">
-          <h2 className="text-3xl font-bold mb-8">Technical Overview</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('sensor.tech_overview')}</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="text-white/60 leading-relaxed space-y-6 text-lg">
               <p>
-                The Skyvantage Sensor functions as a completely self-contained edge compute module enabling seamless integration onto any existing host interceptor with a maximum take-off weight under 25 kilogrammes.
+                {t('sensor.tech_p1')}
               </p>
               <p>
-                The architecture connects to standard flight controllers via universal serial bus to issue MAVLink commands, commanding the host vehicle to manoeuvre to within 3 metres of an agile target at combined closing speeds of up to Mach 1.
+                {t('sensor.tech_p2')}
               </p>
             </div>
             <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
-              <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-sm">Key Specifications</h4>
+              <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-sm">{t('sensor.specs')}</h4>
               <ul className="space-y-4 text-white/40 text-sm">
                 <li className="flex justify-between border-b border-white/5 pb-2">
-                  <span>Compute</span>
+                   <span>{t('sensor.compute')}</span>
                   <span className="text-white">Raspberry Pi 5</span>
                 </li>
                 <li className="flex justify-between border-b border-white/5 pb-2">
-                  <span>Radio</span>
+                  <span>{t('sensor.radio')}</span>
                   <span className="text-white">LimeSDR Phase Coherent</span>
                 </li>
                 <li className="flex justify-between border-b border-white/5 pb-2">
-                  <span>Antennas</span>
+                  <span>{t('sensor.antennas')}</span>
                   <span className="text-white">Direct Mount Wideband</span>
                 </li>
                 <li className="flex justify-between border-b border-white/5 pb-2">
-                  <span>Interface</span>
+                  <span>{t('sensor.interface')}</span>
                   <span className="text-white">USB / MAVLink</span>
                 </li>
                 <li className="flex justify-between">
-                  <span>Supply Chain</span>
+                  <span>{t('sensor.supply_chain')}</span>
                   <span className="text-white">Five Eyes / NATO Compliant</span>
                 </li>
               </ul>
@@ -113,8 +113,8 @@ export default function Sensor() {
           className="rounded-3xl overflow-hidden border border-white/10 bg-white/5 p-8"
         >
           <div className="mb-8">
-            <h2 className="text-3xl font-bold mb-4">TRL4 Validation Data</h2>
-            <p className="text-white/40">High-fidelity sensor telemetry captured during Mach 1.2 simulated engagement.</p>
+            <h2 className="text-3xl font-bold mb-4">{t('sensor.trl4')}</h2>
+            <p className="text-white/40">{t('sensor.trl4_desc')}</p>
           </div>
           <img 
             src="https://grid1.stalwart.vg/newdrone.png" 
@@ -123,7 +123,7 @@ export default function Sensor() {
             referrerPolicy="no-referrer"
           />
           <p className="text-white/40 text-xs text-center font-bold italic tracking-wide">
-            INDICATIVE ILLUSTRATION - THE ACTUAL PRODUCT MAY LOOK DIFFERENT
+            {t('sensor.disclaimer')}
           </p>
         </motion.div>
       </div>

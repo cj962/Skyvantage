@@ -41,7 +41,7 @@ export default function Contact() {
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-brand-muted text-xs uppercase tracking-widest">Location</p>
+                  <p className="text-brand-muted text-xs uppercase tracking-widest">{t('contact.location')}</p>
                   <p className="text-white font-bold">University of Surrey, Guildford, UK</p>
                 </div>
               </div>

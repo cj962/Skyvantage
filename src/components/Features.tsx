@@ -10,19 +10,19 @@ export default function Features() {
     {
       icon: Cpu,
       title: t('nav.sensor'),
-      description: "Universal Software Defined Terminal Guidance Sensor Suite. A completely self-contained edge compute module for high-speed Counter-UAS.",
+      description: t('features.sensor_desc'),
       link: "/sensor"
     },
     {
       icon: Shield,
       title: t('nav.solver'),
-      description: "Proprietary quasilinear solver for heavy NP-Complete applications. Optimised for industrial key recovery and hardware verification.",
+      description: t('features.solver_desc'),
       link: "/solver"
     },
     {
       icon: Wind,
       title: t('nav.guidance'),
-      description: "Software-defined guidance logic capable of tracking high-subsonic loitering munitions on sub-£500 processors.",
+      description: t('features.guidance_desc'),
       link: "/guidance"
     }
   ];
@@ -72,7 +72,7 @@ export default function Features() {
                   {feature.description}
                 </p>
                 <div className="flex items-center gap-2 text-white font-bold text-sm group-hover:text-brand-muted transition-colors">
-                  Learn More
+                  {t('features.learn_more')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </motion.div>
