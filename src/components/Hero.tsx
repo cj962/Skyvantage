@@ -29,10 +29,10 @@ export default function Hero() {
           <span className="inline-block px-4 py-1.5 mb-6 rounded-full border border-white/20 bg-white/5 text-white/80 text-xs font-bold tracking-widest uppercase">
             {t('hero.badge')}
           </span>
-          <h1 className="text-5xl md:text-8xl font-display font-bold leading-none mb-8 tracking-tighter">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-display font-bold leading-none mb-6 md:mb-8 tracking-tighter">
             {t('hero.title')}
           </h1>
-          <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed px-4">
             {t('hero.subtitle')}
           </p>
 

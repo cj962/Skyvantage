@@ -117,9 +117,10 @@ export default function Navbar() {
           <div className="-mr-2 flex md:hidden items-center gap-4">
             <button
               onClick={toggleLanguage}
-              className="p-2 rounded-md text-white/50 hover:text-white"
+              className="px-2 py-1.5 rounded-md text-white/70 hover:text-white border border-white/10 bg-white/5 text-[10px] font-bold flex items-center gap-1.5"
             >
-              <Languages className="h-5 w-5" />
+              <Languages className="h-4 w-4" />
+              {language === 'en' ? 'PT' : 'EN'}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -132,43 +133,64 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      {isOpen && (
-        <motion.div 
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          className="md:hidden bg-black/90 border-b border-white/10"
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {/* Mobile Products Section */}
-            <div className="px-3 py-2">
-              <p className="text-[10px] uppercase tracking-widest text-brand-muted font-bold mb-2">Products</p>
-              <div className="space-y-1 ml-2 border-l border-white/10">
-                {products.map((product) => (
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden fixed inset-x-0 top-20 bg-black/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden shadow-2xl"
+          >
+            <div className="px-4 pt-4 pb-8 space-y-6">
+              {/* Mobile Products Section */}
+              <div className="space-y-4">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold px-3">Products</p>
+                <div className="grid grid-cols-1 gap-2">
+                  {products.map((product) => (
+                    <Link
+                      key={product.name}
+                      to={product.href}
+                      className="text-white/70 block px-4 py-3 rounded-xl text-lg font-medium hover:text-white hover:bg-white/5 transition-all"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {product.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className="h-px bg-white/5 mx-3" />
+
+              <div className="grid grid-cols-1 gap-2">
+                {navLinks.map((link) => (
                   <Link
-                    key={product.name}
-                    to={product.href}
-                    className="text-white/60 block px-4 py-2 rounded-md text-sm font-medium hover:text-white hover:bg-white/5"
+                    key={link.name}
+                    to={link.href}
+                    className="text-white/70 block px-4 py-3 rounded-xl text-lg font-medium hover:text-white hover:bg-white/5 transition-all"
                     onClick={() => setIsOpen(false)}
                   >
-                    {product.name}
+                    {link.name}
                   </Link>
                 ))}
               </div>
-            </div>
 
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className="text-white block px-3 py-2 rounded-md text-base font-medium hover:text-brand-accent"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-      )}
+              {/* Mobile Language Button */}
+              <div className="pt-4 px-3">
+                <button
+                  onClick={() => {
+                    toggleLanguage();
+                    setIsOpen(false);
+                  }}
+                  className="w-full flex items-center justify-center gap-3 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-bold"
+                >
+                  <Languages className="w-5 h-5" />
+                  {language === 'en' ? 'Switch to Portuguese' : 'Mudar para Inglês'}
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

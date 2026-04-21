@@ -36,7 +36,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-8 flex flex-col md:row items-center justify-between gap-4">
+        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-[10px] uppercase tracking-widest">
             {t('footer.rights')}
           </p>

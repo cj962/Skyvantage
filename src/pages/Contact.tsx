@@ -10,10 +10,10 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter">
+            <h1 className="text-4xl md:text-7xl font-display font-bold mb-6 md:mb-8 tracking-tighter">
               {t('contact.title')}
             </h1>
-            <p className="text-white/60 text-xl leading-relaxed mb-12">
+            <p className="text-white/60 text-lg md:text-xl leading-relaxed mb-10 md:mb-12">
               {t('contact.subtitle')}
             </p>
             
@@ -48,7 +48,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="glass-panel p-10 rounded-3xl border border-white/10">
+          <div className="glass-panel p-6 sm:p-10 rounded-3xl border border-white/10">
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">

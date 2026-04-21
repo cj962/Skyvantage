@@ -8,11 +8,11 @@ export default function About() {
   return (
     <div className="pt-32 pb-24 bg-black min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-24">
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter">
+        <div className="mb-20 md:mb-24 px-4 sm:px-0">
+          <h1 className="text-4xl md:text-7xl font-display font-bold mb-6 md:mb-8 tracking-tighter">
             {t('about.title')}
           </h1>
-          <p className="text-white/60 text-xl leading-relaxed max-w-3xl">
+          <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-3xl">
             {t('about.subtitle')}
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function About() {
             </section>
           </div>
 
-          <div className="glass-panel p-10 rounded-3xl border border-white/10">
+          <div className="glass-panel p-6 sm:p-10 rounded-3xl border border-white/10">
             <h3 className="text-2xl font-bold mb-8">{t('about.leadership')}</h3>
             <div className="space-y-10">
               <div className="flex flex-col md:flex-row items-start gap-6">

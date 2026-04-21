@@ -15,10 +15,10 @@ export default function Sensor() {
         >
           <div>
             <span className="text-brand-muted font-bold tracking-widest uppercase text-sm mb-4 block">Product</span>
-            <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter">
+            <h1 className="text-4xl md:text-7xl font-display font-bold mb-6 md:mb-8 tracking-tighter">
               {t('sensor.title')}
             </h1>
-            <p className="text-white/60 text-xl leading-relaxed mb-10">
+            <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-8 md:mb-10">
               {t('sensor.subtitle')}
             </p>
             <div className="grid grid-cols-2 gap-6">
