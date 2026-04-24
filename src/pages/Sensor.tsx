@@ -67,6 +67,26 @@ export default function Sensor() {
           </div>
         </div>
 
+        {/* Video Showcase Section */}
+        <section className="mb-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl relative group"
+          >
+            <video 
+              autoPlay 
+              loop 
+              playsInline
+              className="w-full h-auto relative z-0"
+            >
+              <source src="https://grid1.stalwart.vg/Fvc.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
+        </section>
+
         <div className="prose prose-invert max-w-none mb-24">
           <h2 className="text-3xl font-bold mb-8">{t('sensor.tech_overview')}</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
