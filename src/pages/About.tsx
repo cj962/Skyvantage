@@ -17,76 +17,84 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
-          <div className="space-y-12">
-            <section>
-              <div className="flex items-center gap-4 mb-6">
-                <GraduationCap className="w-8 h-8 text-white" />
-                <h2 className="text-3xl font-bold">{t('about.academic')}</h2>
-              </div>
-              <p className="text-white/50 leading-relaxed text-lg">
-                {t('about.academic_desc')}
-              </p>
-            </section>
-            
-            <section>
-              <div className="flex items-center gap-4 mb-6">
-                <Building2 className="w-8 h-8 text-white" />
-                <h2 className="text-3xl font-bold">{t('about.vision')}</h2>
-              </div>
-              <p className="text-white/50 leading-relaxed text-lg">
-                {t('about.vision_desc')}
-              </p>
-            </section>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10"
+          >
+            <h2 className="text-3xl font-bold mb-6 text-white">{t('about.who_we_are')}</h2>
+            <p className="text-white/50 leading-relaxed text-lg">
+              {t('about.who_we_are_desc')}
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10"
+          >
+            <h2 className="text-3xl font-bold mb-6 text-white">{t('about.strategy')}</h2>
+            <p className="text-white/50 leading-relaxed text-lg">
+              {t('about.strategy_desc')}
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10"
+          >
+            <h2 className="text-3xl font-bold mb-6 text-white">{t('about.how_we_operate')}</h2>
+            <p className="text-white/50 leading-relaxed text-lg">
+              {t('about.how_we_operate_desc')}
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10"
+          >
+            <h2 className="text-3xl font-bold mb-6 text-white">{t('about.innovation_focus')}</h2>
+            <p className="text-white/50 leading-relaxed text-lg">
+              {t('about.innovation_focus_desc')}
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24 items-center">
+          <div>
+            <span className="text-brand-muted font-bold tracking-widest uppercase text-sm mb-4 block">Foundations</span>
+            <h2 className="text-4xl font-display font-bold mb-6 text-white">{t('about.academic')}</h2>
+            <p className="text-white/50 leading-relaxed text-lg">
+              {t('about.academic_desc')}
+            </p>
           </div>
-
-          <div className="glass-panel p-6 sm:p-10 rounded-3xl border border-white/10">
-            <h3 className="text-2xl font-bold mb-8">{t('about.leadership')}</h3>
-            <div className="space-y-10">
-              <div className="flex flex-col md:flex-row items-start gap-6">
-                <div className="w-32 h-32 rounded-2xl bg-white/10 overflow-hidden flex-shrink-0 border border-white/10">
-                  <img 
-                    src="https://grid1.stalwart.vg/FabioDias.png" 
-                    alt="Fabio Dias" 
-                    className="w-full h-full object-cover grayscale"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white">Fabio Dias</h4>
-                  <p className="text-brand-muted text-sm uppercase tracking-widest mb-2">{t('about.fabio_title')}</p>
-                  <p className="text-white/40 text-sm leading-relaxed">
-                    {t('about.fabio_bio')}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row items-start gap-6">
-                <div className="w-32 h-32 rounded-2xl bg-white/10 overflow-hidden flex-shrink-0 border border-white/10">
-                  <img 
-                    src="https://grid1.stalwart.vg/Alexander.png" 
-                    alt="Alexander Shomalistos" 
-                    className="w-full h-full object-cover grayscale"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white">Alexander Shomalistos</h4>
-                  <p className="text-brand-muted text-sm uppercase tracking-widest mb-2">{t('about.alex_title')}</p>
-                  <p className="text-white/40 text-sm leading-relaxed">
-                    {t('about.alex_bio')}
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="aspect-video rounded-3xl overflow-hidden grayscale border border-white/10 bg-white/5">
+            <img 
+              src="https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=2070&auto=format&fit=crop" 
+              alt="Research and Development"
+              className="w-full h-full object-cover opacity-60"
+              referrerPolicy="no-referrer"
+            />
           </div>
         </div>
 
-        <div className="p-12 rounded-3xl bg-white/5 border border-white/10 text-center">
-          <h2 className="text-3xl font-bold mb-6">{t('about.mission')}</h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto leading-relaxed">
-            {t('about.mission_desc')}
-          </p>
+        <div className="p-12 rounded-3xl bg-white text-black text-center relative overflow-hidden group">
+          <div className="relative z-10">
+            <h2 className="text-4xl font-display font-bold mb-6">{t('about.mission')}</h2>
+            <p className="text-black/70 text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+              {t('about.mission_desc')}
+            </p>
+          </div>
         </div>
       </div>
     </div>

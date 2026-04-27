@@ -3,7 +3,7 @@ import { Cpu, Zap, Shield, Target } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Sensor() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className="pt-32 pb-24 bg-black min-h-screen">
@@ -28,7 +28,7 @@ export default function Sensor() {
               </div>
               <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
                 <p className="text-brand-muted text-xs uppercase tracking-widest mb-1">{t('sensor.speed')}</p>
-                <p className="text-2xl font-bold">Mach 1.2</p>
+                <p className="text-2xl font-bold" h-id="3">Mach 1.2</p>
               </div>
             </div>
           </div>
@@ -73,15 +73,20 @@ export default function Sensor() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl relative group"
+            className="rounded-3xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl relative group aspect-video"
           >
             <video 
+              key={language}
               autoPlay 
               loop 
               playsInline
-              className="w-full h-auto relative z-0"
+              controls
+              className="w-full h-full object-cover relative z-0"
             >
-              <source src="https://grid1.stalwart.vg/Fvc.mp4" type="video/mp4" />
+              <source 
+                src={language === 'en' ? "https://grid1.stalwart.vg/EFVC.mp4" : "https://grid1.stalwart.vg/PFVC.mp4"} 
+                type="video/mp4" 
+              />
               Your browser does not support the video tag.
             </video>
           </motion.div>
