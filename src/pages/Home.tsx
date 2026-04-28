@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <main>
@@ -27,13 +27,17 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none z-10"></div>
             <video 
+              key={language}
               autoPlay 
-              muted 
               loop 
               playsInline
+              controls
               className="w-full h-auto relative z-0"
             >
-              <source src="https://grid1.stalwart.vg/Dronevid.mp4" type="video/mp4" />
+              <source 
+                src={language === 'en' ? "https://grid1.stalwart.vg/Dronevid.mp4" : "https://grid1.stalwart.vg/PFVC.mp4"} 
+                type="video/mp4" 
+              />
               Your browser does not support the video tag.
             </video>
           </motion.div>
