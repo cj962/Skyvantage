@@ -1,10 +1,31 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Binary, Shield, Cpu, Activity, CheckCircle2, Lock, Layers, Zap, Terminal, RefreshCw, ChevronRight, Hash, Database, GitMerge } from 'lucide-react';
+import { 
+  Binary, 
+  ShieldCheck, 
+  Cpu, 
+  Activity, 
+  CheckCircle2, 
+  Lock, 
+  Layers, 
+  Zap, 
+  Terminal, 
+  RefreshCw, 
+  ChevronRight, 
+  Hash, 
+  Database, 
+  GitMerge, 
+  Sparkles,
+  ArrowRight,
+  Boxes,
+  Code2
+} from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import ProductDocs from '../components/ProductDocs';
+import GF2SolverAnimation from '../components/GF2SolverAnimation';
 
 export default function Solver() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activePhase, setActivePhase] = useState<number>(2);
 
   const phases = [
@@ -12,63 +33,75 @@ export default function Solver() {
       phase: "Phase 0",
       name: "Fast Bounded CDCL",
       defaultState: "Off (Configurable)",
-      description: "Hands the system to CryptoMiniSat under a conflict budget. Extracts Level-0 truths and learned XOR relations, feeding them directly back into the algebraic netlist to enrich the basis."
+      description: language === 'pt' 
+        ? "Transfere o sistema para o CryptoMiniSat sob um orçamento de conflitos delimitado. Extrai verdades de Nível-0 e relações XOR aprendidas, realimentando diretamente o netlist algébrico para enriquecer a base polinomial."
+        : "Hands the system to CryptoMiniSat under a bounded conflict budget. Extracts Level-0 truths and learned XOR relations, feeding them directly back into the algebraic netlist to enrich the polynomial basis."
     },
     {
       phase: "Phase 1",
       name: "Expansion of Linear Constraints",
       defaultState: "Always On",
-      description: "Cannot be disabled—seeds the evolutionary cascade. Enforces the expandability property across all variables and compacts the index space into a contiguous 0..n-1 range."
+      description: language === 'pt'
+        ? "Fase mandatória que semeia a cascata evolucionária. Impõe a propriedade de expansão entre todas as variáveis e compacta o espaço de índices em um intervalo contíguo 0..n-1."
+        : "Cannot be disabled—seeds the evolutionary cascade. Enforces the expandability property across all variables and compacts the index space into a contiguous 0..n-1 range."
     },
     {
       phase: "Phase 1.5",
       name: "Sexed Reproduction",
       defaultState: "Off (Configurable)",
-      description: "Cross-multiplies pivot rows from initial linear equations to accelerate early rank growth across quadratic monomials."
+      description: language === 'pt'
+        ? "Multiplica cruzadamente linhas de pivô de equações lineares iniciais para acelerar o crescimento inicial de rank em monômios quadráticos."
+        : "Cross-multiplies pivot rows from initial linear equations to accelerate early rank growth across quadratic monomials."
     },
     {
       phase: "Phase 2",
       name: "Evolutionary Loop (The Cascade)",
       defaultState: "On (Core)",
-      description: "Bucket-indexed Gaussian elimination held in reduced row echelon form (RREF) with lock-free insertion: pivot column claimed via atomic CAS, write-once rows, and smart-funnel max-heap row reduction. Stays sparse by refusing work."
+      description: language === 'pt'
+        ? "Eliminação gaussiana indexada por baldes mantida em forma escalonada reduzida por linhas (RREF) com inserção lock-free: coluna de pivô reivindicada via CAS atômico, linhas write-once e redução por max-heap de funil inteligente. Mantém-se esparsa recusando trabalho."
+        : "Bucket-indexed Gaussian elimination held in reduced row echelon form (RREF) with lock-free insertion: pivot column claimed via atomic CAS, write-once rows, and smart-funnel max-heap row reduction. Stays sparse by refusing work."
     },
     {
       phase: "Phase 3",
       name: "Border Basis Prolongation & Phantom Sweep",
       defaultState: "Configurable",
-      description: "Degree-3 prolongation plus a closure loop for systems the degree-2 cascade cannot finish. Extracts phantoms (degree-2 ideal members derivable only via degree-3 cancellation) before quotient basis closure."
+      description: language === 'pt'
+        ? "Prolongamento de grau 3 com loop de fechamento para sistemas que a cascata de grau 2 não finaliza. Extrai fantasmas (membros do ideal de grau 2 deriváveis apenas via cancelamento de grau 3) antes do fechamento da base quociente."
+        : "Degree-3 prolongation plus a closure loop for systems the degree-2 cascade cannot finish. Extracts phantoms (degree-2 ideal members derivable only via degree-3 cancellation) before quotient basis closure."
     },
     {
       phase: "Phase 4",
       name: "Condensation & Fast Exhaustive Search (FES)",
       defaultState: "Configurable",
-      description: "Condenses the residual system onto unresolved free variables and performs highly parallel bit-sliced exhaustive search over the tractable residual space."
+      description: language === 'pt'
+        ? "Condensa o sistema residual sobre variáveis livres não resolvidas e executa busca exaustiva paralela bit-sliced sobre o espaço residual tratável."
+        : "Condenses the residual system onto unresolved free variables and performs highly parallel bit-sliced exhaustive search over the tractable residual space."
     }
   ];
 
   const applications = [
     {
-      title: "AI Guardrail Formal Verification",
-      subtitle: "NeMo Guardrails & Colang Compilation",
-      desc: "Compiling Colang policies into quasilinear GF(2) equations and proving algebraically that protected bot actions or tool calls cannot fire without safety context variables.",
-      icon: Shield
-    },
-    {
-      title: "EDA Circuit Formal Verification",
-      subtitle: "Gate-Level Bristol Netlists",
-      desc: "Deciding industrial Boolean netlists (AND, XOR, INV) at scale, with an active research target of 100,000–200,000 variables and sub-cubic cascade scaling.",
+      title: t('app.eda_title'),
+      subtitle: t('app.eda_sub'),
+      desc: t('app.eda_desc'),
       icon: Cpu
     },
     {
-      title: "Algebraic Cryptanalysis & Primitives",
-      subtitle: "Finite Field Quadratic Inversion",
-      desc: "Inverting cryptographic functions (e.g. SHA-256, Speck-32, multiplier factorisation ladders) through structured quadratic equation solving over GF(2).",
-      icon: Lock
+      title: t('app.diffuse_title'),
+      subtitle: t('app.diffuse_sub'),
+      desc: t('app.diffuse_desc'),
+      icon: GitMerge
     },
     {
-      title: "Complete Context Enumeration",
-      subtitle: "Quotient Ring Möller–Stetter Decomposition",
-      desc: "Splitting finite-dimensional quotient algebras into exact eigenspaces to enumerate every valid bypass context and prove that no other context exists.",
+      title: t('app.guardrails_title'),
+      subtitle: t('app.guardrails_sub'),
+      desc: t('app.guardrails_desc'),
+      icon: ShieldCheck
+    },
+    {
+      title: t('app.enumeration_title'),
+      subtitle: t('app.enumeration_sub'),
+      desc: t('app.enumeration_desc'),
       icon: Database
     }
   ];
@@ -84,13 +117,13 @@ export default function Solver() {
         >
           <div>
             <span className="text-brand-muted font-mono font-bold tracking-widest uppercase text-xs mb-4 block">
-              C++17 ALGEBRAIC RESOLUTION FRAMEWORK
+              {t('solver.badge')}
             </span>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-bold mb-6 tracking-tighter">
-              GF2 Solver
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-bold mb-6 tracking-tighter text-white">
+              {t('solver.title')}
             </h1>
             <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-8">
-              A high-performance C++17 framework for formal verification over the binary field GF(2). Translating Boolean netlists into quasilinear quadratic systems and deciding them with mathematical refutation certificates.
+              {t('solver.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4">
               <div className="px-6 py-3 rounded-full bg-white text-black font-bold flex items-center gap-2 text-sm">
@@ -104,30 +137,119 @@ export default function Solver() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute inset-0 bg-white/5 rounded-full blur-[100px] opacity-20"></div>
-            <div className="relative z-10 p-8 glass-panel rounded-3xl border border-white/10 aspect-square flex flex-col items-center justify-center overflow-hidden">
-              {/* Matrix Grid Visualization */}
-              <div className="absolute inset-0 opacity-10 grid grid-cols-8 gap-1 p-4">
-                {Array.from({ length: 64 }).map((_, i) => (
-                  <div key={i} className="border border-white/20 rounded-sm" />
-                ))}
-              </div>
-              <Activity className="w-32 h-32 text-white opacity-20 absolute animate-pulse" />
-              <div className="text-center relative z-20">
-                <p className="text-6xl sm:text-7xl font-mono font-bold mb-2 tracking-tighter text-white">𝔽₂</p>
-                <p className="text-brand-muted text-xs uppercase tracking-widest font-mono font-bold">
-                  Binary Finite Field Algebra
-                </p>
-              </div>
-              <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2">
-                <div className="h-1 w-12 bg-white rounded-full" />
-                <div className="h-1 w-4 bg-white/20 rounded-full" />
-                <div className="h-1 w-4 bg-white/20 rounded-full" />
-              </div>
-            </div>
+          <div className="relative w-full">
+            <GF2SolverAnimation />
           </div>
         </motion.div>
+
+        {/* Industrial Applications Grid (Explicitly including EDA Circuit Testing & Diffuse SAT Solving) */}
+        <div className="mb-24">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs uppercase tracking-widest font-mono font-bold text-brand-muted block mb-2">
+              {t('solver.apps_badge')}
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+              {t('solver.apps_title')}
+            </h2>
+            <p className="text-white/50 text-base">
+              {language === 'pt' 
+                ? 'Aplicações industriais e criptográficas verificadas deterministicamente através da álgebra em corpos finitos.'
+                : 'Industrial and cryptographic domains decided deterministically through finite field polynomial resolution.'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {applications.map((app, idx) => (
+              <motion.div
+                key={app.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="glass-panel p-8 rounded-3xl border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
+                    <app.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-xs font-mono uppercase tracking-widest text-brand-muted font-bold block mb-1">
+                    {app.subtitle}
+                  </span>
+                  <h3 className="text-2xl font-bold text-white mb-3">{app.title}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed mb-6 font-sans">
+                    {app.desc}
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-mono text-emerald-400">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  <span>{language === 'pt' ? 'Suportado no binário C++ do Quasilinear' : 'Native C++ Engine Capability'}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dedicated Section: Hybrid CDCL Algebraic Engine */}
+        <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 mb-24 relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <span className="text-xs font-mono uppercase tracking-widest text-brand-muted font-bold block">
+                {t('hybrid.badge')}
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-white leading-tight">
+                {t('hybrid.title')}
+              </h2>
+              <p className="text-white/70 leading-relaxed text-base">
+                {t('hybrid.desc')}
+              </p>
+
+              <div className="space-y-3">
+                <div className="flex items-start gap-3 text-sm text-white/80">
+                  <Zap className="w-4 h-4 text-brand-accent shrink-0 mt-1" />
+                  <span>{t('hybrid.p1')}</span>
+                </div>
+                <div className="flex items-start gap-3 text-sm text-white/80">
+                  <Lock className="w-4 h-4 text-emerald-400 shrink-0 mt-1" />
+                  <span>{t('hybrid.p2')}</span>
+                </div>
+              </div>
+
+              <div className="pt-4 flex flex-wrap gap-3 font-mono text-xs text-white/70">
+                <span className="px-3 py-1.5 rounded-lg bg-black/60 border border-white/10">CryptoMiniSat CDCL</span>
+                <span className="px-3 py-1.5 rounded-lg bg-black/60 border border-white/10">Lock-Free RREF</span>
+                <span className="px-3 py-1.5 rounded-lg bg-black/60 border border-white/10">Atomic CAS Pivoting</span>
+                <span className="px-3 py-1.5 rounded-lg bg-black/60 border border-white/10">XOR Equation Learning</span>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 bg-black/80 rounded-2xl border border-white/10 p-6 font-mono text-xs space-y-3">
+              <div className="flex items-center justify-between text-white/40 pb-2 border-b border-white/10">
+                <span>hybrid_engine_rref.cpp</span>
+                <span className="text-brand-muted">C++</span>
+              </div>
+              <pre className="text-white/80 leading-relaxed overflow-x-auto whitespace-pre font-mono">
+{`// Hybrid CDCL + RREF Gaussian Step
+void HybridEngine::run_bounded_cdcl(
+    Netlist& netlist, 
+    int conflict_budget) 
+{
+  cmsat_solver.set_max_conflicts(conflict_budget);
+  auto status = cmsat_solver.solve();
+  
+  // Extract Level-0 unit assignments
+  for (const auto& unit : cmsat_solver.get_zero_units()) {
+    netlist.insert_linear_equality(unit.var, unit.val);
+  }
+  
+  // Extract learned XOR relations
+  for (const auto& xor_rel : cmsat_solver.get_learned_xors()) {
+    netlist.add_xor_constraint(xor_rel);
+  }
+}`}
+              </pre>
+            </div>
+          </div>
+        </div>
 
         {/* Multi-Stage Pipeline Interactive Breakdown */}
         <div className="mb-24">
@@ -136,10 +258,10 @@ export default function Solver() {
               ALGEBRAIC ARCHITECTURE
             </span>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-              The 5-Stage Hybrid Pipeline
+              {t('solver.pipeline_title')}
             </h2>
             <p className="text-white/50 text-base">
-              The solver executes a deterministic sequence of phases, individually configurable via <code className="text-xs font-mono text-white bg-white/10 px-1.5 py-0.5 rounded">--config</code> JSON parameters.
+              {t('solver.pipeline_desc')}
             </p>
           </div>
 
@@ -213,74 +335,8 @@ export default function Solver() {
           </div>
         </div>
 
-        {/* Industrial Applications Grid */}
-        <div className="mb-24">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs uppercase tracking-widest font-mono font-bold text-brand-muted block mb-2">
-              DUAL-USE INDUSTRIAL APPLICATIONS
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-              Where the Algebra Operates
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {applications.map((app, idx) => (
-              <motion.div
-                key={app.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="glass-panel p-8 rounded-3xl border border-white/10 hover:border-white/25 transition-all"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
-                  <app.icon className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-xs font-mono uppercase tracking-widest text-brand-muted font-bold block mb-1">
-                  {app.subtitle}
-                </span>
-                <h3 className="text-2xl font-bold text-white mb-3">{app.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">
-                  {app.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mathematical Foundations Section */}
-        <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 mb-24 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-8 opacity-5">
-            <Binary className="w-64 h-64" />
-          </div>
-          <div className="relative z-10 max-w-3xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-brand-muted font-bold block mb-2">
-              THEORETICAL GROUNDWORK
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-6">
-              Polynomial-Time Solution via Evolutionary Rank Augmentation
-            </h2>
-            <p className="text-white/70 leading-relaxed text-base mb-8">
-              The reduction compiles 3-SAT and Boolean netlists into quasilinear systems where every equation is either purely linear or linear plus exactly one quadratic term over GF(2). Unlike conventional CDCL checkers that return binary SAT/UNSAT flags, Quasilinearsolver constructs replayable derivation receipts and certified minimal-disruption fixes.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
-              <div className="p-4 rounded-2xl bg-black/40 border border-white/10">
-                <span className="text-white/40 block mb-1">Field Arithmetic</span>
-                <span className="text-white font-bold text-base">GF(2) Algebra</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-black/40 border border-white/10">
-                <span className="text-white/40 block mb-1">Cascade Memory</span>
-                <span className="text-white font-bold text-base">O(n<sup>1.93</sup>)</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-black/40 border border-white/10">
-                <span className="text-white/40 block mb-1">Target Netlist Scale</span>
-                <span className="text-white font-bold text-base">200k Variables</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Embedded Full Product Documentation Component */}
+        <ProductDocs />
       </div>
     </div>
   );

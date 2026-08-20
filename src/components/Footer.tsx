@@ -11,12 +11,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="space-y-4 md:col-span-1">
             <div className="flex items-center gap-3">
-              <div className="h-8 w-8 bg-white rounded-lg flex items-center justify-center font-mono font-bold text-black text-base shadow-sm">
-                𝔽₂
+              <img 
+                src="https://grid1.stalwart.vg/Stalwartnewlogo2026.png" 
+                alt="Stalwart Technologies Logo" 
+                className="h-9 w-9 object-contain rounded-lg shrink-0"
+                referrerPolicy="no-referrer"
+              />
+              <div className="flex flex-col">
+                <span className="text-xl font-display font-bold tracking-tighter text-white">
+                  Stalwart Technologies
+                </span>
+                <span className="text-[11px] font-mono text-brand-muted">
+                  Quasilinear
+                </span>
               </div>
-              <span className="text-xl font-display font-bold tracking-tighter">
-                Quasilinearsolver
-              </span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed">
               {t('footer.description')}
@@ -24,7 +32,7 @@ export default function Footer() {
             <div className="pt-2">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono bg-white/5 border border-white/10 text-emerald-400">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                C++17 Algebraic Engine Live
+                C++ Algebraic Engine Live
               </span>
             </div>
           </div>
@@ -56,7 +64,7 @@ export default function Footer() {
             </h4>
             <div className="flex items-start gap-3 text-sm text-white/50">
               <MapPin className="w-4 h-4 text-white shrink-0 mt-1" />
-              <span>CEME Campus, Marsh Way, London, UK, RM13 8EU</span>
+              <span>Ceme Campus, Marsh Way, Rainham, England, RM13 8EU</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white/50">
               <Mail className="w-4 h-4 text-white shrink-0" />

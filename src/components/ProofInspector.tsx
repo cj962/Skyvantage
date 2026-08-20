@@ -203,7 +203,7 @@ export default function ProofInspector() {
           <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3 text-xs font-mono text-white/70">
             <Terminal className="w-4 h-4 text-brand-muted shrink-0" />
             <span className="text-white font-bold">$</span>
-            <span className="truncate">QuasiLinearSolverApp --verify-guardrail policy.co {selectedDemo.pins !== 'None' ? `--pin ${selectedDemo.pins}` : ''}</span>
+            <span className="truncate">QuasilinearApp --verify-guardrail policy.co {selectedDemo.pins !== 'None' ? `--pin ${selectedDemo.pins}` : ''}</span>
           </div>
         </div>
 
@@ -244,7 +244,7 @@ export default function ProofInspector() {
               </div>
               <div>
                 <span className="text-white/40 block">Proof System</span>
-                <span className="text-white font-bold">GF(2) Algebra (C++17)</span>
+                <span className="text-white font-bold">GF(2) Algebra (C++)</span>
               </div>
             </div>
           </div>

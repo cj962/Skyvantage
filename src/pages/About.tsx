@@ -12,7 +12,7 @@ export default function About() {
         {/* Header */}
         <div className="mb-20 md:mb-24 px-4 sm:px-0">
           <span className="text-xs uppercase tracking-widest font-mono font-bold text-brand-muted block mb-3">
-            STALWART HOLDINGS LTD · RESEARCH &amp; DEVELOPMENT
+            STALWART TECHNOLOGIES · RESEARCH &amp; DEVELOPMENT
           </span>
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-bold mb-6 md:mb-8 tracking-tighter text-white">
             {t('about.title')}

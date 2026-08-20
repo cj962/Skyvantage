@@ -11,7 +11,7 @@ export default function Navbar() {
 
   const products = [
     { name: t('nav.guardrails'), href: "/guardrails", icon: ShieldCheck, desc: "Colang to GF(2) Algebraic Guardrail Verification" },
-    { name: t('nav.solver'), href: "/solver", icon: Binary, desc: "C++17 Binary Field Solver & Multi-Phase Pipeline" },
+    { name: t('nav.solver'), href: "/solver", icon: Binary, desc: "C++ Binary Field Solver & Multi-Phase Pipeline" },
     { name: t('nav.deck'), href: "/deck", icon: Presentation, desc: "Executive Technical Briefing & Slide Presentation" },
   ];
 
@@ -35,15 +35,18 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 className="flex-shrink-0 flex items-center gap-3"
               >
-                <div className="h-10 w-10 bg-white rounded-xl flex items-center justify-center font-mono font-bold text-black text-lg shadow-sm">
-                  𝔽₂
-                </div>
+                <img 
+                  src="https://grid1.stalwart.vg/Stalwartnewlogo2026.png" 
+                  alt="Stalwart Technologies Logo" 
+                  className="h-10 w-10 sm:h-11 sm:w-11 object-contain rounded-lg shrink-0"
+                  referrerPolicy="no-referrer"
+                />
                 <div className="flex flex-col">
                   <span className="text-xl sm:text-2xl font-display font-bold tracking-tighter text-white">
-                    Quasilinearsolver
+                    Stalwart Technologies
                   </span>
                   <span className="text-[10px] font-mono tracking-widest text-brand-muted uppercase">
-                    Formal Verification Engine
+                    Quasilinear · Formal Verification
                   </span>
                 </div>
               </motion.div>

@@ -1,6 +1,6 @@
 {
-  "name": "Quasilinearsolver",
-  "description": "A C++17 framework for formal verification over GF(2). Proving what an AI agent cannot do through algebraic guardrail verification and EDA circuit analysis.",
+  "name": "Stalwart Technologies",
+  "description": "Stalwart Technologies - Quasilinear: A C++ framework for formal verification over GF(2). Proving what an AI agent cannot do through algebraic guardrail verification and EDA circuit analysis.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

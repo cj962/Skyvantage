@@ -68,7 +68,7 @@ export default function Home() {
                   <th className="p-6">Capability / Metric</th>
                   <th className="p-6">Sampling &amp; LLM Evals</th>
                   <th className="p-6">Standard SMT / SAT</th>
-                  <th className="p-6 text-white bg-white/5 font-bold">Quasilinearsolver GF(2)</th>
+                  <th className="p-6 text-white bg-white/5 font-bold">Quasilinear GF(2)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5 text-white/70">

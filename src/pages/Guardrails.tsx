@@ -169,7 +169,7 @@ export default function Guardrails() {
               Gating What the Model Does: Tool Calls and MCP Dispatch
             </h2>
             <p className="text-white/60 leading-relaxed text-base">
-              Under Model Context Protocol (MCP) or function calling, the model does not produce text for inspection—it requests side effects on external systems. Quasilinearsolver puts the rail directly on the dispatch gate.
+              Under Model Context Protocol (MCP) or function calling, the model does not produce text for inspection—it requests side effects on external systems. Quasilinear puts the rail directly on the dispatch gate.
             </p>
           </div>
 
@@ -210,7 +210,7 @@ export default function Guardrails() {
             <div className="space-y-1">
               <h4 className="text-white font-bold text-base font-sans">Why Language Models Cannot Certify Their Own Guardrails</h4>
               <p className="text-white/50 text-sm">
-                LLMs produce likely completions, not mathematical entailment. A sampling test suite of 33 cases against 2<sup>48</sup> states is a rounding error. Quasilinearsolver provides the independent algebraic ground truth.
+                LLMs produce likely completions, not mathematical entailment. A sampling test suite of 33 cases against 2<sup>48</sup> states is a rounding error. Quasilinear provides the independent algebraic ground truth.
               </p>
             </div>
             <Link to="/solver" className="shrink-0">
