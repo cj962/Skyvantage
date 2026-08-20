@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ChevronDown, Languages } from "lucide-react";
+import { Menu, X, ChevronDown, Languages, Binary, ShieldCheck, Presentation, FileCode, Terminal } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
@@ -10,9 +10,9 @@ export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
 
   const products = [
-    { name: t('nav.sensor'), href: "/sensor" },
-    { name: t('nav.solver'), href: "/solver" },
-    { name: t('nav.guidance'), href: "/guidance" },
+    { name: t('nav.guardrails'), href: "/guardrails", icon: ShieldCheck, desc: "Colang to GF(2) Algebraic Guardrail Verification" },
+    { name: t('nav.solver'), href: "/solver", icon: Binary, desc: "C++17 Binary Field Solver & Multi-Phase Pipeline" },
+    { name: t('nav.deck'), href: "/deck", icon: Presentation, desc: "Executive Technical Briefing & Slide Presentation" },
   ];
 
   const navLinks = [
@@ -25,7 +25,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-md border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-xl border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
@@ -35,29 +35,30 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 className="flex-shrink-0 flex items-center gap-3"
               >
-                <div className="h-12 bg-white rounded-lg flex items-center justify-center overflow-hidden p-2">
-                  <img 
-                    src="https://grid1.stalwart.vg/images/STALWART2020LTD.png" 
-                    alt="Stalwart Logo" 
-                    className="h-full w-auto object-contain"
-                    referrerPolicy="no-referrer"
-                  />
+                <div className="h-10 w-10 bg-white rounded-xl flex items-center justify-center font-mono font-bold text-black text-lg shadow-sm">
+                  𝔽₂
                 </div>
-                <span className="text-2xl font-display font-bold tracking-tighter text-white">
-                  Skyvantage
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-xl sm:text-2xl font-display font-bold tracking-tighter text-white">
+                    Quasilinearsolver
+                  </span>
+                  <span className="text-[10px] font-mono tracking-widest text-brand-muted uppercase">
+                    Formal Verification Engine
+                  </span>
+                </div>
               </motion.div>
             </Link>
+
             <div className="hidden md:block ml-10">
               <div className="flex items-center space-x-8">
-                {/* Products Dropdown */}
+                {/* Solutions Dropdown */}
                 <div 
                   className="relative"
                   onMouseEnter={() => setIsProductsOpen(true)}
                   onMouseLeave={() => setIsProductsOpen(false)}
                 >
-                  <button className="flex items-center gap-1 text-white/50 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                    Products
+                  <button className="flex items-center gap-1.5 text-white/70 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                    {t('nav.products')}
                     <ChevronDown className={`w-4 h-4 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
                   </button>
                   
@@ -67,16 +68,22 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute left-0 mt-2 w-56 rounded-2xl bg-black/90 backdrop-blur-xl border border-white/10 p-2 shadow-2xl"
+                        className="absolute left-0 mt-2 w-80 rounded-2xl bg-black/95 backdrop-blur-2xl border border-white/15 p-2 shadow-2xl z-50"
                       >
                         {products.map((product) => (
                           <Link
                             key={product.name}
                             to={product.href}
-                            className="block px-4 py-3 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                            className="flex items-start gap-3 p-3 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all group"
                             onClick={() => setIsProductsOpen(false)}
                           >
-                            {product.name}
+                            <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-white/20 transition-colors">
+                              <product.icon className="w-4 h-4 text-white" />
+                            </div>
+                            <div>
+                              <p className="font-bold text-white text-sm">{product.name}</p>
+                              <p className="text-white/40 text-xs mt-0.5">{product.desc}</p>
+                            </div>
                           </Link>
                         ))}
                       </motion.div>
@@ -84,49 +91,63 @@ export default function Navbar() {
                   </AnimatePresence>
                 </div>
 
-                {navLinks.map((link, idx) => (
-                  <motion.div
+                <Link
+                  to="/guardrails"
+                  className="text-white/70 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  {t('nav.guardrails')}
+                </Link>
+
+                <Link
+                  to="/solver"
+                  className="text-white/70 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  {t('nav.solver')}
+                </Link>
+
+                <Link
+                  to="/deck"
+                  className="text-white/70 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <Presentation className="w-3.5 h-3.5 text-brand-muted" />
+                  Deck
+                </Link>
+
+                {navLinks.map((link) => (
+                  <Link
                     key={link.name}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.1 }}
+                    to={link.href}
+                    className="text-white/70 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
                   >
-                    <Link
-                      to={link.href}
-                      className="text-white/50 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
+                    {link.name}
+                  </Link>
                 ))}
 
                 {/* Language Switcher */}
-                <motion.button
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
+                <button
                   onClick={toggleLanguage}
-                  className="flex items-center gap-2 text-white/50 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors border border-white/10 bg-white/5"
+                  className="flex items-center gap-2 text-white/70 hover:text-white px-3 py-1.5 rounded-full text-xs font-mono font-bold transition-colors border border-white/15 bg-white/5"
                 >
-                  <Languages className="w-4 h-4" />
+                  <Languages className="w-3.5 h-3.5" />
                   {language === 'en' ? 'PT' : 'EN'}
-                </motion.button>
+                </button>
               </div>
             </div>
           </div>
-          <div className="-mr-2 flex md:hidden items-center gap-4">
+
+          <div className="-mr-2 flex md:hidden items-center gap-3">
             <button
               onClick={toggleLanguage}
-              className="px-2 py-1.5 rounded-md text-white/70 hover:text-white border border-white/10 bg-white/5 text-[10px] font-bold flex items-center gap-1.5"
+              className="px-2.5 py-1.5 rounded-lg text-white/80 hover:text-white border border-white/15 bg-white/5 text-xs font-mono font-bold flex items-center gap-1.5"
             >
-              <Languages className="h-4 w-4" />
+              <Languages className="h-3.5 w-3.5" />
               {language === 'en' ? 'PT' : 'EN'}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-brand-accent focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-lg text-white hover:text-brand-accent focus:outline-none bg-white/5 border border-white/10"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
@@ -143,30 +164,31 @@ export default function Navbar() {
           >
             <div className="px-4 pt-4 pb-8 space-y-6">
               {/* Mobile Products Section */}
-              <div className="space-y-4">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold px-3">Products</p>
+              <div className="space-y-3">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted font-bold px-3">Solutions</p>
                 <div className="grid grid-cols-1 gap-2">
                   {products.map((product) => (
                     <Link
                       key={product.name}
                       to={product.href}
-                      className="text-white/70 block px-4 py-3 rounded-xl text-lg font-medium hover:text-white hover:bg-white/5 transition-all"
+                      className="text-white/80 flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium hover:text-white hover:bg-white/5 transition-all"
                       onClick={() => setIsOpen(false)}
                     >
+                      <product.icon className="w-5 h-5 text-brand-muted" />
                       {product.name}
                     </Link>
                   ))}
                 </div>
               </div>
 
-              <div className="h-px bg-white/5 mx-3" />
+              <div className="h-px bg-white/10 mx-3" />
 
               <div className="grid grid-cols-1 gap-2">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     to={link.href}
-                    className="text-white/70 block px-4 py-3 rounded-xl text-lg font-medium hover:text-white hover:bg-white/5 transition-all"
+                    className="text-white/80 block px-4 py-3 rounded-xl text-base font-medium hover:text-white hover:bg-white/5 transition-all"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
@@ -175,16 +197,16 @@ export default function Navbar() {
               </div>
 
               {/* Mobile Language Button */}
-              <div className="pt-4 px-3">
+              <div className="pt-2 px-3">
                 <button
                   onClick={() => {
                     toggleLanguage();
                     setIsOpen(false);
                   }}
-                  className="w-full flex items-center justify-center gap-3 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-bold"
+                  className="w-full flex items-center justify-center gap-3 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-sm"
                 >
-                  <Languages className="w-5 h-5" />
-                  {language === 'en' ? 'Switch to Portuguese' : 'Mudar para Inglês'}
+                  <Languages className="w-4 h-4" />
+                  {language === 'en' ? 'Switch to Portuguese (PT)' : 'Mudar para Inglês (EN)'}
                 </button>
               </div>
             </div>

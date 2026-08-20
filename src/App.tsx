@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Sensor from "./pages/Sensor";
+import Guardrails from "./pages/Guardrails";
 import Solver from "./pages/Solver";
-import Guidance from "./pages/Guidance";
+import Deck from "./pages/Deck";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import { motion, useScroll, useSpring } from "motion/react";
@@ -32,11 +32,15 @@ export default function App() {
         
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/sensor" element={<Sensor />} />
+          <Route path="/guardrails" element={<Guardrails />} />
           <Route path="/solver" element={<Solver />} />
-          <Route path="/guidance" element={<Guidance />} />
+          <Route path="/deck" element={<Deck />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          {/* Legacy route redirects */}
+          <Route path="/sensor" element={<Navigate to="/guardrails" replace />} />
+          <Route path="/guidance" element={<Navigate to="/deck" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         
         <Footer />

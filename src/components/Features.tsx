@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Shield, Wind, Cpu, ArrowRight } from "lucide-react";
+import { ShieldCheck, Binary, Presentation, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -8,22 +8,22 @@ export default function Features() {
 
   const features = [
     {
-      icon: Cpu,
-      title: t('nav.sensor'),
-      description: t('features.sensor_desc'),
-      link: "/sensor"
+      icon: ShieldCheck,
+      title: t('nav.guardrails'),
+      description: t('features.guardrails_desc'),
+      link: "/guardrails"
     },
     {
-      icon: Shield,
+      icon: Binary,
       title: t('nav.solver'),
       description: t('features.solver_desc'),
       link: "/solver"
     },
     {
-      icon: Wind,
-      title: t('nav.guidance'),
-      description: t('features.guidance_desc'),
-      link: "/guidance"
+      icon: Presentation,
+      title: t('nav.deck'),
+      description: t('features.deck_desc'),
+      link: "/deck"
     }
   ];
 
@@ -38,7 +38,7 @@ export default function Features() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-display font-bold mb-6"
+            className="text-3xl md:text-5xl font-display font-bold mb-6 text-white tracking-tight"
           >
             {t('features.title')}
           </motion.h2>
@@ -47,7 +47,7 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-white/40 max-w-2xl mx-auto"
+            className="text-white/50 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed"
           >
             {t('features.subtitle')}
           </motion.p>
@@ -62,16 +62,18 @@ export default function Features() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="glass-panel p-8 rounded-3xl group transition-all hover:border-white/20 h-full flex flex-col"
+                className="glass-panel p-8 rounded-3xl group transition-all hover:border-white/20 h-full flex flex-col justify-between"
               >
-                <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
-                  <feature.icon className="w-6 h-6 text-white" />
+                <div>
+                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
+                    <feature.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-display font-bold mb-4 text-white">{feature.title}</h3>
+                  <p className="text-white/40 leading-relaxed text-sm mb-6 font-sans">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-display font-bold mb-4">{feature.title}</h3>
-                <p className="text-white/40 leading-relaxed text-sm mb-6 flex-grow">
-                  {feature.description}
-                </p>
-                <div className="flex items-center gap-2 text-white font-bold text-sm group-hover:text-brand-muted transition-colors">
+                <div className="flex items-center gap-2 text-white font-bold text-sm group-hover:text-brand-muted transition-colors pt-4 border-t border-white/5">
                   {t('features.learn_more')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>

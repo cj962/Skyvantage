@@ -1,5 +1,6 @@
 {
-  "name": "Skyvantage",
-  "description": "Software-defined Counter-UAS and NP-Complete solver solutions. Redefining the unit economics of modern aerial defence.",
-  "requestFramePermissions": []
+  "name": "Quasilinearsolver",
+  "description": "A C++17 framework for formal verification over GF(2). Proving what an AI agent cannot do through algebraic guardrail verification and EDA circuit analysis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
