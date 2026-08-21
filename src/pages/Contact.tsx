@@ -42,7 +42,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-brand-muted text-xs uppercase tracking-widest">{t('contact.location')}</p>
-                  <p className="text-white font-bold">Ceme Campus, Marsh Way, Rainham, England, RM13 8EU</p>
+                  <p className="text-white font-bold">Jubilee House, The Drive, Brentwood, United Kingdom, CM13 3FR</p>
                 </div>
               </div>
             </div>

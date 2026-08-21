@@ -64,7 +64,7 @@ export default function Footer() {
             </h4>
             <div className="flex items-start gap-3 text-sm text-white/50">
               <MapPin className="w-4 h-4 text-white shrink-0 mt-1" />
-              <span>Ceme Campus, Marsh Way, Rainham, England, RM13 8EU</span>
+              <span>Jubilee House, The Drive, Brentwood, United Kingdom, CM13 3FR</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white/50">
               <Mail className="w-4 h-4 text-white shrink-0" />

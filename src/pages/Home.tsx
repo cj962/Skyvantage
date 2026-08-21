@@ -23,10 +23,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <span className="text-xs uppercase tracking-widest font-mono font-bold text-brand-muted block mb-3">
-              EXECUTIVE TECHNICAL BRIEFING
+              {t('briefing.eyebrow')}
             </span>
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              How the Rail is Wired: Colang to GF(2) Proofs
+              {t('briefing.title')}
             </h2>
           </div>
           <SlideDeck />
@@ -51,13 +51,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs uppercase tracking-widest font-mono font-bold text-brand-muted block mb-2">
-              PARADIGM COMPARISON
+              {t('matrix.eyebrow')}
             </span>
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-4">
-              Testing Samples vs. Mathematical Decidability
+              {t('matrix.title')}
             </h2>
             <p className="text-white/50 text-base">
-              Why conventional LLM eval suites and SMT solvers leave silent bypass vulnerabilities in production AI agents.
+              {t('matrix.subtitle')}
             </p>
           </div>
 
@@ -65,54 +65,54 @@ export default function Home() {
             <table className="w-full text-left font-sans text-sm min-w-[640px]">
               <thead>
                 <tr className="border-b border-white/10 text-xs font-mono uppercase tracking-wider text-brand-muted">
-                  <th className="p-6">Capability / Metric</th>
-                  <th className="p-6">Sampling &amp; LLM Evals</th>
-                  <th className="p-6">Standard SMT / SAT</th>
-                  <th className="p-6 text-white bg-white/5 font-bold">Quasilinear GF(2)</th>
+                  <th className="p-6">{t('matrix.col_metric')}</th>
+                  <th className="p-6">{t('matrix.col_sampling')}</th>
+                  <th className="p-6">{t('matrix.col_smt')}</th>
+                  <th className="p-6 text-white bg-white/5 font-bold">{t('matrix.col_quasilinear')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5 text-white/70">
                 <tr>
-                  <td className="p-6 font-bold text-white">Context Space Guarantee</td>
+                  <td className="p-6 font-bold text-white">{t('matrix.row_space')}</td>
                   <td className="p-6 text-red-400 flex items-center gap-2">
                     <XCircle className="w-4 h-4 shrink-0" />
-                    ~30–100 prompt samples
+                    {t('matrix.row_space_sampling')}
                   </td>
-                  <td className="p-6 text-white/80">Complete (Slow)</td>
+                  <td className="p-6 text-white/80">{t('matrix.row_space_smt')}</td>
                   <td className="p-6 text-emerald-400 font-bold bg-white/5">
-                    All 2<sup>N</sup> combinations (Quantified)
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-6 font-bold text-white">Proof of Impossibility</td>
-                  <td className="p-6 text-red-400">None (Pass = No failure observed)</td>
-                  <td className="p-6 text-white/80">DRAT / LRAT (Verbose)</td>
-                  <td className="p-6 text-emerald-400 font-bold bg-white/5">
-                    Replayable DAG of row XORs (UNSAT)
+                    {t('matrix.row_space_quasi')}
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-6 font-bold text-white">Audit Replayability</td>
-                  <td className="p-6 text-red-400">Non-deterministic</td>
-                  <td className="p-6 text-white/80">Requires solver binary</td>
+                  <td className="p-6 font-bold text-white">{t('matrix.row_impossibility')}</td>
+                  <td className="p-6 text-red-400">{t('matrix.row_impossibility_sampling')}</td>
+                  <td className="p-6 text-white/80">{t('matrix.row_impossibility_smt')}</td>
                   <td className="p-6 text-emerald-400 font-bold bg-white/5">
-                    Independent 1-page verifier script
+                    {t('matrix.row_impossibility_quasi')}
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-6 font-bold text-white">Policy Repair &amp; Patching</td>
-                  <td className="p-6 text-red-400">Manual prompt tweaking</td>
-                  <td className="p-6 text-red-400">Unsatisfiable Core only</td>
+                  <td className="p-6 font-bold text-white">{t('matrix.row_replay')}</td>
+                  <td className="p-6 text-red-400">{t('matrix.row_replay_sampling')}</td>
+                  <td className="p-6 text-white/80">{t('matrix.row_replay_smt')}</td>
                   <td className="p-6 text-emerald-400 font-bold bg-white/5">
-                    Automated Colang patch with SDS score
+                    {t('matrix.row_replay_quasi')}
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-6 font-bold text-white">Counting Completeness</td>
-                  <td className="p-6 text-red-400">Impossible</td>
-                  <td className="p-6 text-white/80">Blocking clause loops</td>
+                  <td className="p-6 font-bold text-white">{t('matrix.row_repair')}</td>
+                  <td className="p-6 text-red-400">{t('matrix.row_repair_sampling')}</td>
+                  <td className="p-6 text-red-400">{t('matrix.row_repair_smt')}</td>
                   <td className="p-6 text-emerald-400 font-bold bg-white/5">
-                    Möller–Stetter quotient diagonalisation
+                    {t('matrix.row_repair_quasi')}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="p-6 font-bold text-white">{t('matrix.row_counting')}</td>
+                  <td className="p-6 text-red-400">{t('matrix.row_counting_sampling')}</td>
+                  <td className="p-6 text-white/80">{t('matrix.row_counting_smt')}</td>
+                  <td className="p-6 text-emerald-400 font-bold bg-white/5">
+                    {t('matrix.row_counting_quasi')}
                   </td>
                 </tr>
               </tbody>

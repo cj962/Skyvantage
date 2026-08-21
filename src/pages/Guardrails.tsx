@@ -82,10 +82,10 @@ export default function Guardrails() {
         <div className="mb-24">
           <div className="text-center mb-8">
             <span className="text-xs uppercase tracking-widest font-mono font-bold text-brand-muted block mb-2">
-              EXECUTIVE TECHNICAL BRIEFING
+              {t('briefing.eyebrow')}
             </span>
             <h2 className="text-3xl md:text-5xl font-display font-bold">
-              Proving What an AI Agent Cannot Do
+              {t('briefing.guardrails_title')}
             </h2>
           </div>
           <SlideDeck />

@@ -78,8 +78,8 @@ define flow trade_gate
       icon: Layers,
       bullets: [
         language === 'pt'
-          ? "Fase 0 (CDCL Bounded): CryptoMiniSat extrai verdades de Nível-0 e relações XOR aprendidas sob orçamento de conflito"
-          : "Phase 0 (Bounded CDCL): CryptoMiniSat extracts Level-0 truths and learned XOR relations under conflict budget",
+          ? "Fase 0 (CDCL Bounded): O motor CDCL extrai verdades de Nível-0 e relações XOR aprendidas sob orçamento de conflito"
+          : "Phase 0 (Bounded CDCL): The CDCL engine extracts Level-0 truths and learned XOR relations under conflict budget",
         language === 'pt'
           ? "Fase 1 (Expansão Linear): Garante propriedade de expansão e compacta espaço contíguo de variáveis"
           : "Phase 1 (Linear Expansion): Enforces variable expandability property across all indices",
